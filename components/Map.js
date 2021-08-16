@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Script from 'next/script'
 import Head from 'next/head'
 import { MapContainer, TileLayer, Marker, Popup, Circle, CircleMarker } from 'react-leaflet'
 
@@ -12,7 +13,7 @@ export default function Map({ data }) {
           integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
           crossOrigin=''
         />
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        <Script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
           integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
           crossOrigin=''
         />
