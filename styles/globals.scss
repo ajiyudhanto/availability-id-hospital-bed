@@ -106,12 +106,25 @@ a {
 
 .primal-container {
   padding: 0px 100px 0px 100px;
+  margin-bottom: 50px;
+
+  .hospital-title {
+    color: #01C5B8;
+    margin: 0ch;
+    font-weight: bold;
+    font-size: 36px;
+  }
+
+  .hospital-subtitle {
+    color: #A6A8AB;
+    font-size: 24px;
+    margin: 0ch;
+  }
 }
 
 .region-selection {
   padding: 10px 15px 10px 15px;
   margin-top: 50px;
-  margin-bottom: 50px;
   margin-right: 15px;
   min-width: 350px;
   background-color: #01C5B8;
@@ -145,5 +158,30 @@ a {
 
 .map-container {
   width: 100%;
-  height: 70vh;
+  height: 65vh;
+}
+
+.bubble-text-map {
+  margin: 0px !important;
+  font-size: 14px;
+}
+
+.bed-card-container {
+  margin: 0px 15px 15px 0px;
+  padding: 0px 15px 0px 15px;
+  background-color: #C0E3DA !important;
+  width: 300px;
+}
+
+.bed-card-title {
+  color: #5B5B5B;
+  margin: 15px 0px 15px 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.bed-card-content {
+  color: #5B5B5B;
+  margin: 0px 0px 0px 0px;
+  font-size: 16px;
 }

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Navbar from '../components/Navbar'
 import dynamic from 'next/dynamic'
-import { Grid, FormControl, InputLabel, NativeSelect } from '@material-ui/core'
+import { Grid, Card, CardActions, CardContent } from '@material-ui/core'
 
 const Map = dynamic(import('../components/Map.js'), {
   ssr: false
@@ -164,8 +164,30 @@ export default function Covid() {
         </Grid>
         <Map data={hospitals} centerPosition={mapCenter} getHospitalDetails={getHospitalDetails} />
         {
-          selectedHospital.id && <Grid container>
-            
+          selectedHospital.id && <Grid container className='primal-container' direction='column'>
+            <h1 className='rokkit hospital-title'>{ selectedHospital.name }</h1>
+            <h2 className='rokkit hospital-subtitle'>{ selectedHospital.address }</h2>
+            <h2 className='rokkit hospital-subtitle'>Kontak : { selectedHospital.phone ? selectedHospital.phone : '-' }</h2>
+            <h1 className='rokkit hospital-title' style={{ marginTop: 30, marginBottom: 15 }}>Detail Tempat Tidur</h1>
+            <Grid container item xs={12} style={{ width: '100%' }}>
+              {
+                selectedHospital.bedDetail.length && selectedHospital.bedDetail.map(e => {
+                  return (
+                    <Card className='bed-card-container'>
+                      <CardContent style={{ padding: 8, height: 170 }}>
+                        <p className='rokkit bed-card-title'>{ e.stats.title }</p>
+                        <p className='rokkit bed-card-content'>Jumlah tempat tidur: { e.stats.bed_available }</p>
+                        <p className='rokkit bed-card-content'>Tempat tidur kosong: { e.stats.bed_empty }</p>
+                        <p className='rokkit bed-card-content'>Antrean: { e.stats.queue }</p>
+                      </CardContent>
+                      <CardActions style={{ justifyContent: 'flex-end' }}>
+                        <p className='rokkit bed-card-content'>{ e.time }</p>
+                      </CardActions>
+                    </Card>
+                  )
+                })
+              }
+            </Grid>
           </Grid>
         }
       </main>

@@ -65,9 +65,9 @@ export default function Map({ data, centerPosition, getHospitalDetails }) {
                 }
                 return (
                   <Marker position={[e.lat, e.long]} key={e.id}>
-                    <Popup>
-                      Nama: {e.name} <br/>
-                      Kasur yang tersedia: {e.bed_availability} buah <br/>
+                    <Popup style={{ minWidth: '1000px' }}>
+                      <p className='rokkit bubble-text-map'>Nama: {e.name}</p>
+                      <p className='rokkit bubble-text-map'>Kasur yang tersedia: {e.bed_availability} buah</p><br/>
                       <button onClick={() => getHospitalDetails(e.id)}>detail</button>
                     </Popup>
                   </Marker>
