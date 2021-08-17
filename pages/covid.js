@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Navbar from '../components/Navbar'
 import dynamic from 'next/dynamic'
-import { Grid, Card, CardActions, CardContent } from '@material-ui/core'
+import { Grid, Card, CardActions, CardContent, CircularProgress } from '@material-ui/core'
 
 const Map = dynamic(import('../components/Map.js'), {
   ssr: false
@@ -48,6 +48,7 @@ export default function Covid() {
 
   useEffect(async () => {
     try {
+      setIsLoadingCities(true)
       if (!selectedProvince) {
         setCities([])
         setSelectedCity('')
@@ -61,6 +62,7 @@ export default function Covid() {
       })
       const data = await res.json()
       setCities(data.cities)
+      setIsLoadingCities(false)
     } catch (error) {
       console.log(error)
     }
@@ -168,6 +170,9 @@ export default function Covid() {
               })
             }
           </select>
+          {
+            isLoadingCities && <CircularProgress className='rokkin loading-cities' style={{ color: '#01C5B8' }} />
+          }
         </Grid>
         <Map data={hospitals} centerPosition={mapCenter} getHospitalDetails={getHospitalDetails} />
         {
