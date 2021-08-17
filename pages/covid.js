@@ -115,6 +115,13 @@ export default function Covid() {
     }
   }
 
+  useEffect(() => {
+    const detailsContainer = document.getElementById('hospital-details-grid')
+    if (detailsContainer) {
+      detailsContainer.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+    }
+  }, [selectedHospital])
+
   return (
     <div>
       <Head>
@@ -164,7 +171,7 @@ export default function Covid() {
         </Grid>
         <Map data={hospitals} centerPosition={mapCenter} getHospitalDetails={getHospitalDetails} />
         {
-          selectedHospital.id && <Grid container className='primal-container' direction='column'>
+          selectedHospital.id && <Grid container id='hospital-details-grid' className='primal-container' direction='column'>
             <h1 className='rokkit hospital-title'>{ selectedHospital.name }</h1>
             <h2 className='rokkit hospital-subtitle'>{ selectedHospital.address }</h2>
             <h2 className='rokkit hospital-subtitle'>Kontak : { selectedHospital.phone ? selectedHospital.phone : '-' }</h2>
@@ -173,7 +180,7 @@ export default function Covid() {
               {
                 selectedHospital.bedDetail.length && selectedHospital.bedDetail.map(e => {
                   return (
-                    <Card className='bed-card-container'>
+                    <Card className='bed-card-container' key={e.stats.title}>
                       <CardContent style={{ padding: 8, height: 170 }}>
                         <p className='rokkit bed-card-title'>{ e.stats.title }</p>
                         <p className='rokkit bed-card-content'>Jumlah tempat tidur: { e.stats.bed_available }</p>
