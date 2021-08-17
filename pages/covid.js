@@ -18,6 +18,9 @@ export default function Covid() {
   const [selectedCity, setSelectedCity] = useState('')
   const [isLoadingCities, setIsLoadingCities] = useState(false)
   const [hospitals, setHospitals] = useState([])
+  const [isLoadingHospitals, setIsLoadingHospitals] = useState(false)
+  const [totalHospitals, setTotalHospitals] = useState(100)
+  const [totalLoadedHospitals, setTotalLoadedHospitals] = useState(0)
   const [selectedHospital, setSelectedHospital] = useState({})
   const [mapCenter, setMapCenter] = useState([0.3737, 127.1902])
 
@@ -48,12 +51,12 @@ export default function Covid() {
 
   useEffect(async () => {
     try {
-      setIsLoadingCities(true)
       if (!selectedProvince) {
         setCities([])
         setSelectedCity('')
         return
       }
+      setIsLoadingCities(true)
       const res = await fetch(`https://rs-bed-covid-api.vercel.app/api/get-cities?provinceid=${selectedProvince}`, {
         method: 'GET',
         headers: {
@@ -75,6 +78,9 @@ export default function Covid() {
         setSelectedHospital({})
         return
       }
+      setTotalHospitals(100)
+      setTotalLoadedHospitals(0)
+      setIsLoadingHospitals(true)
       const res = await fetch(`https://rs-bed-covid-api.vercel.app/api/get-hospitals?provinceid=${selectedProvince}&cityid=${selectedCity}&type=1`, {
         method: 'GET',
         headers: {
@@ -82,6 +88,7 @@ export default function Covid() {
         }
       })
       const data = await res.json()
+      setTotalHospitals(data.hospitals.length)
       const _hospitals = []
       for (let i = 0; i < data.hospitals.length; i++) {
         const rs = await fetch(`https://rs-bed-covid-api.vercel.app/api/get-hospital-map?hospitalid=${data.hospitals[i].id}`, {
@@ -93,9 +100,11 @@ export default function Covid() {
         const _data = await rs.json()
         if (i === 0) setMapCenter([Number( _data.data.lat), Number(_data.data.long)])
         _hospitals.push({ ...data.hospitals[i], lat: _data.data.lat, long: _data.data.long })
+        setTotalLoadedHospitals(i + 1)
       }
       console.log(_hospitals)
       setHospitals(_hospitals)
+      setIsLoadingHospitals(false)
     } catch (error) {
       console.log(error)
     }
@@ -174,7 +183,14 @@ export default function Covid() {
             isLoadingCities && <CircularProgress className='rokkin loading-cities' style={{ color: '#01C5B8' }} />
           }
         </Grid>
-        <Map data={hospitals} centerPosition={mapCenter} getHospitalDetails={getHospitalDetails} />
+        <Map 
+          data={hospitals}
+          centerPosition={mapCenter}
+          getHospitalDetails={getHospitalDetails}
+          isLoadingHospitals={isLoadingHospitals}
+          totalHospitals={totalHospitals}
+          totalLoadedHospitals={totalLoadedHospitals}
+        />
         {
           selectedHospital.id && <Grid container id='hospital-details-grid' className='primal-container' direction='column'>
             <h1 className='rokkit hospital-title'>{ selectedHospital.name }</h1>

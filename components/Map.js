@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Script from 'next/script'
 import Head from 'next/head'
-import { Grid } from '@material-ui/core'
-import { MapContainer, TileLayer, Marker, Popup, Circle, CircleMarker } from 'react-leaflet'
+import { Grid, LinearProgress } from '@material-ui/core'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
-export default function Map({ data, centerPosition, getHospitalDetails }) {
+export default function Map({ data, centerPosition, getHospitalDetails, totalHospitals, totalLoadedHospitals, isLoadingHospitals }) {
   const [refresh, setRefresh] = useState(true)
 
   useEffect(() => {
@@ -45,6 +45,9 @@ export default function Map({ data, centerPosition, getHospitalDetails }) {
 
       <Grid container className='primal-container'>
         {
+          isLoadingHospitals && <LinearProgress variant="determinate" value={ (totalLoadedHospitals / totalHospitals) * 100 } classes={{ root: 'linear-progress-root', colorPrimary: 'linear-progress-color-primary', bar: 'linear-progress-bar' }} />
+        }
+        {
           data && refresh && centerPosition && <MapContainer center={centerPosition} zoom={data.length ? 12 : 5} scrollWheelZoom={true} className='map-container'>
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -52,16 +55,16 @@ export default function Map({ data, centerPosition, getHospitalDetails }) {
             />
             {
               data.length && data.map(e => {
+                if (e.lat.toString().includes(',')) {
+                  e.lat = e.lat.split(',')[0]
+                } 
+                if (e.long.toString().includes(',')) {
+                  e.long = e.long.split(',')[0]
+                }
                 if (!Number(e.lat)) {
                   const { lat, lng } = parseDMS(e.lat + ' ' + e.long)
                   e.lat = lat
                   e.long = lng
-                }
-                if (e.lat.includes(',')) {
-                  e.lat = e.lat.split(',')[0]
-                } 
-                if (e.long.includes(',')) {
-                  e.long = e.long.split(',')[0]
                 }
                 return (
                   <Marker position={[e.lat, e.long]} key={e.id}>
