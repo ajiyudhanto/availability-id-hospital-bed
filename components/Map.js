@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { Grid } from '@material-ui/core'
 import { MapContainer, TileLayer, Marker, Popup, Circle, CircleMarker } from 'react-leaflet'
 
-export default function Map({ data, centerPosition }) {
+export default function Map({ data, centerPosition, getHospitalDetails }) {
   const [refresh, setRefresh] = useState(true)
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export default function Map({ data, centerPosition }) {
                     <Popup>
                       Nama: {e.name} <br/>
                       Kasur yang tersedia: {e.bed_availability} buah <br/>
-                      <button>detail</button>
+                      <button onClick={() => getHospitalDetails(e.id)}>detail</button>
                     </Popup>
                   </Marker>
                 )

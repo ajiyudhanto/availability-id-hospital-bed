@@ -99,6 +99,22 @@ export default function Covid() {
     }
   }, [selectedCity])
 
+  const getHospitalDetails = async (id) => {
+    try {
+      const res = await fetch(`https://rs-bed-covid-api.vercel.app/api/get-bed-detail?hospitalid=${id}&type=1`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+      const data = await res.json()
+      console.log(data)
+      setSelectedHospital(data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div>
       <Head>
@@ -146,7 +162,12 @@ export default function Covid() {
             }
           </select>
         </Grid>
-        <Map data={hospitals} centerPosition={mapCenter} />
+        <Map data={hospitals} centerPosition={mapCenter} getHospitalDetails={getHospitalDetails} />
+        {
+          selectedHospital.id && <Grid container>
+            
+          </Grid>
+        }
       </main>
     </div>
   )
