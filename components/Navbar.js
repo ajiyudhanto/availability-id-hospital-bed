@@ -21,13 +21,10 @@ const Navbar = () => {
         </Grid>
         <Grid item container xs={11} sm={10} md={9} justifyContent='flex-end' alignItems='center'>
           <div className='nav-menu-container'>
-            <p onClick={() => router.push('/rumah-sakit-umum')} className={`rokkit nav-menu ${router.pathname === '/rumah-sakit-umum' ? 'nav-selected' : ''}`}>RS. Umum</p>
+            <p onClick={() => router.push('/covid')} className={`rokkit nav-menu ${router.pathname === '/covid' ? 'nav-selected' : ''}`}>RS Bed Khusus Covid</p>
           </div>
           <div className='nav-menu-container'>
-            <p onClick={() => router.push('/rumah-sakit-khusus')} className={`rokkit nav-menu ${router.pathname === '/rumah-sakit-khusus' ? 'nav-selected' : ''}`}>RS. Khusus</p>
-          </div>
-          <div className='nav-menu-container'>
-            <p onClick={() => router.push('/puskesmas')} className={`rokkit nav-menu ${router.pathname === '/puskesmas' ? 'nav-selected' : ''}`}>Puskesmas</p>
+            <p onClick={() => router.push('/non-covid')} className={`rokkit nav-menu ${router.pathname === '/non-covid' ? 'nav-selected' : ''}`}>RS Bed Khusus Non-Covid</p>
           </div>
         </Grid>
       </Grid>

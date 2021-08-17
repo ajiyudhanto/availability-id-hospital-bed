@@ -23,18 +23,17 @@ export default function Home() {
         <Navbar />
         <Landing className='landing-svg' />
         <Grid container className='title-container' direction='column'>
-          <h1 className='rokkit title-landing-page'>Data Rumah Sakit di Jakarta</h1>
-          <h2 className='rokkit subtitle-landing-page'>data ini diambil dari api.jakarta.go.id</h2>
-            <select
-              value=''
-              onChange={handleChange}
-              className='native-selection rokkit'
-            >
-              <option value={''} className='select-option'>Data apa yang ingin Anda lihat?</option>
-              <option value={'rumah-sakit-umum'} className='select-option'>Rumah Sakit Umum</option>
-              <option value={'rumah-sakit-khusus'} className='select-option'>Rumah Sakit Khusus</option>
-              <option value={'puskesmas'} className='select-option'>Puskesmas</option>
-            </select>
+          <h1 className='rokkit title-landing-page'>Ketersediaan Rumah Sakit Indonesia</h1>
+          <h2 className='rokkit subtitle-landing-page'>data ini diambil dari <a href='https://github.com/satyawikananda/rs-bed-covid-indo-api/' target='_blank' style={{ textDecoration: 'underline' }}>satyawikananda/rs-bed-covid-indo-api</a></h2>
+          <select
+            value=''
+            onChange={handleChange}
+            className='native-selection rokkit'
+          >
+            <option value={''} className='select-option'>Data apa yang ingin Anda lihat?</option>
+            <option value={'covid'} className='select-option'>Tempat tidur pasien covid</option>
+            <option value={'non-covid'} className='select-option'>Tempat tidur pasien non-covid</option>
+          </select>
         </Grid>
       </main>
     </div>
