@@ -26,6 +26,9 @@ const Navbar = () => {
           <div className='nav-menu-container'>
             <p onClick={() => router.push('/non-covid')} className={`rokkit nav-menu ${router.pathname === '/non-covid' ? 'nav-selected' : ''}`}>RS Bed Khusus Non-Covid</p>
           </div>
+          <div className='nav-menu-container'>
+            <p onClick={() => router.push('/disclaimer')} className={`rokkit nav-menu ${router.pathname === '/disclaimer' ? 'nav-selected' : ''}`}>Disclaimer</p>
+          </div>
         </Grid>
       </Grid>
     </>
