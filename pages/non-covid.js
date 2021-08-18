@@ -201,7 +201,7 @@ export default function NonCovid() {
               {
                 selectedHospital.bedDetail.length && selectedHospital.bedDetail.map(e => {
                   return (
-                    <Card className='bed-card-container' key={e.stats.title}>
+                    <Card className={ !Number(e.stats.bed_empty) ? 'empty-bed-card-container' : 'bed-card-container' } key={e.stats.title}>
                       <CardContent style={{ padding: 8, height: 170 }}>
                         <p className='rokkit bed-card-title'>{ e.stats.title }</p>
                         <p className='rokkit bed-card-content'>Jumlah tempat tidur: { e.stats.bed_available }</p>
