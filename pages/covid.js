@@ -102,7 +102,6 @@ export default function Covid() {
         _hospitals.push({ ...data.hospitals[i], lat: _data.data.lat, long: _data.data.long })
         setTotalLoadedHospitals(i + 1)
       }
-      console.log(_hospitals)
       setHospitals(_hospitals)
       setIsLoadingHospitals(false)
     } catch (error) {
@@ -119,7 +118,6 @@ export default function Covid() {
         }
       })
       const data = await res.json()
-      console.log(data)
       setSelectedHospital(data.data)
     } catch (error) {
       console.log(error)
@@ -147,7 +145,7 @@ export default function Covid() {
           <select
             value={selectedProvince}
             onChange={handleChangeProvince}
-            className='region-selection rokkit'
+            className='region-selection top-selection rokkit'
           >
             <option value={''} className='select-option'>Pilih Provinsi</option>
             {
@@ -201,8 +199,8 @@ export default function Covid() {
               {
                 selectedHospital.bedDetail.length && selectedHospital.bedDetail.map(e => {
                   return (
-                    <Card className='bed-card-container' key={e.stats.title}>
-                      <CardContent style={{ padding: 8, height: 170 }}>
+                    <Card className={ !Number(e.stats.bed_empty) ? 'empty-bed-card-container' : 'bed-card-container' } key={e.stats.title}>
+                      <CardContent className='card-details-container'>
                         <p className='rokkit bed-card-title'>{ e.stats.title }</p>
                         <p className='rokkit bed-card-content'>Jumlah tempat tidur: { e.stats.bed_available }</p>
                         <p className='rokkit bed-card-content'>Tempat tidur kosong: { e.stats.bed_empty }</p>
