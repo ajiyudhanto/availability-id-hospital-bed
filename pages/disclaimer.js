@@ -29,15 +29,15 @@ export default function Disclaimer() {
           <p className='rokkit disclaimer-point'>Regards,</p><br/><br className='sm-hide' />
           <p className='rokkit disclaimer-point'>Aji Widhya Yudhanto</p>
           <div className='icon-container'>
-            <a href='https://www.linkedin.com/in/aji-yudhanto-905ab0125/' target='_blank' rel="noreferrer">
+            <a href='https://www.linkedin.com/in/aji-yudhanto-905ab0125/' className='align-center' target='_blank' rel="noreferrer">
               <LinkedInIcon className='sosmed-icon-big' />
             </a>
             <Divider orientation="vertical" flexItem className='icon-separator' />
-            <a href='https://github.com/ajiyudhanto' target='_blank' rel="noreferrer">
+            <a href='https://github.com/ajiyudhanto' className='align-center' target='_blank' rel="noreferrer">
               <GitHubIcon className='sosmed-icon-small' />
             </a>
             <Divider orientation="vertical" flexItem className='icon-separator' />
-            <a href='https://www.instagram.com/awyudhanto/' target='_blank' rel="noreferrer">
+            <a href='https://www.instagram.com/awyudhanto/' className='align-center' target='_blank' rel="noreferrer">
               <InstagramIcon className='sosmed-icon-big' />
             </a>
           </div>

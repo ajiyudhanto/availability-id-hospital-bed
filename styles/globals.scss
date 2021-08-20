@@ -172,6 +172,11 @@ a {
   }
 }
 
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
 .region-selection {
   padding: 10px 15px 10px 15px;
   margin-top: 50px;
