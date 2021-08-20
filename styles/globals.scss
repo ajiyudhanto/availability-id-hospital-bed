@@ -109,6 +109,17 @@ a {
   outline: none;
 }
 
+.paper-menu {
+  padding: 5px 10px 5px 10px !important;
+  background-color: #01C5B8 !important;
+
+  .nav-menu-paper {
+    margin: 5px 0px 5px 0px;
+    color: #FFFFFF;
+    font-size: 12px;
+  }
+}
+
 .primal-container {
   padding: 0px 100px 0px 100px;
   margin-bottom: 50px;
