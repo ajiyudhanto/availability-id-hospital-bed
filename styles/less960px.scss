@@ -45,4 +45,58 @@
   .nav-menu-container {
     margin-left: 30px;
   }
+
+  .primal-container {
+    padding: 0px 25px 0px 25px;
+    margin-bottom: 50px;
+  
+    .hospital-title {
+      color: #01C5B8;
+      margin: 0ch;
+      font-weight: bold;
+      font-size: 36px;
+    }
+  
+    .hospital-subtitle {
+      color: #A6A8AB;
+      font-size: 24px;
+      margin: 0ch;
+    }
+  
+    .disclaimer-title {
+      font-size: 24px;
+      margin: 50px 0px 15px 0px;
+    }
+  
+    .disclaimer-point {
+      text-align: justify;
+      font-size: 16px;
+      margin: 0px 0px 15px 0px;
+    }
+  
+    .icon-container {
+      display: flex;
+      align-items: flex-start;
+  
+      .icon-separator {
+        margin: 0px 5px 0px 5px;
+        color: #01C5B8;
+        font-size: 20px;
+      }
+  
+      .sosmed-icon-big {
+        color: #01C5B8;
+        font-size: 16px;
+      }
+  
+      .sosmed-icon-small {
+        color: #01C5B8;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .sm-hide {
+    display: none;
+  }
 }
