@@ -1,0 +1,33 @@
+@media (min-width: 1280px) and (max-width: 1530px) {
+  .title-container {
+    padding: 150px 100px 0px 100px;
+  
+    .title-landing-page {
+      font-size: 48px;
+    }
+  
+    .subtitle-landing-page {
+      font-size: 28px;
+    }
+
+    .native-selection {
+      margin-top: 30px;
+      max-width: 350px;
+      font-size: 18px;
+    
+      .select-option {
+        font-style: normal;
+        cursor: pointer;
+        font-size: 18px;
+        color: #FFFFFF;
+      }
+    }
+    
+  }
+
+  .landing-svg {
+    position: absolute;
+    right: 0px;
+    height: 600px;
+  }
+}

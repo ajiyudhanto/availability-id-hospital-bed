@@ -19,9 +19,9 @@ export default function Home() {
         <link rel="icon" href="/Hospital.svg" />
       </Head>
 
-      <main className='main-container'>
+      <main className='main-container main-overflow-hidden'>
         <Navbar />
-        <Landing className='landing-svg' />
+        <img src='/landing.svg' alt='hospital' className='landing-svg' />
         <Grid container className='title-container' direction='column'>
           <h1 className='rokkit title-landing-page'>Ketersediaan Rumah Sakit Indonesia</h1>
           <h2 className='rokkit subtitle-landing-page'>data ini diambil dari <a href='https://github.com/satyawikananda/rs-bed-covid-indo-api/' target='_blank' rel="noreferrer" style={{ textDecoration: 'underline' }}>satyawikananda/rs-bed-covid-indo-api</a></h2>

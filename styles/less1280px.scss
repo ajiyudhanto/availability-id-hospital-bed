@@ -1,0 +1,42 @@
+@media (min-width: 960px) and (max-width: 1280px) {
+  .title-container {
+    padding: 150px 100px 0px 100px;
+  
+    .title-landing-page {
+      font-size: 32px;
+    }
+  
+    .subtitle-landing-page {
+      font-size: 18px;
+    }
+
+    .native-selection {
+      padding: 10px 15px 10px 15px;
+      margin-top: 30px;
+      max-width: 300px;
+      font-size: 16px;
+    
+      .select-option {
+        font-style: normal;
+        cursor: pointer;
+        font-size: 16px;
+        color: #FFFFFF;
+      }
+    }
+    
+  }
+
+  .landing-svg {
+    position: absolute;
+    right: 0px;
+    height: 500px;
+  }
+
+  .nav-menu {
+    font-size: 18px;
+  }
+
+  .nav-menu-container {
+    margin-left: 30px;
+  }
+}
