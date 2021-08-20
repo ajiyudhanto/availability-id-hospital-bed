@@ -24,7 +24,8 @@ a {
 }
 
 .main-overflow-hidden {
-  overflow-y: hidden;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
 }
 
 .rokkit {
