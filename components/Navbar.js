@@ -31,9 +31,9 @@ const Navbar = () => {
                 <ClickAwayListener onClickAway={() => setOpen(false)}>
                   <Fade {...TransitionProps} timeout={350}>
                     <Paper className='paper-menu'>
-                      <p onClick={() => router.push('/covid')} className='rokkit nav-menu-paper'>RS Bed Khusus Covid</p>
-                      <p onClick={() => router.push('/non-covid')} className='rokkit nav-menu-paper'>RS Bed Khusus Non-Covid</p>
-                      <p onClick={() => router.push('/disclaimer')} className='rokkit nav-menu-paper'>Disclaimer</p>
+                      <p onClick={() => router.push('/covid')} className={`rokkit nav-menu-paper ${router.pathname === '/covid' ? 'nav-selected-paper' : ''}`}>RS Bed Khusus Covid</p>
+                      <p onClick={() => router.push('/non-covid')} className={`rokkit nav-menu-paper ${router.pathname === '/non-covid' ? 'nav-selected-paper' : ''}`}>RS Bed Khusus Non-Covid</p>
+                      <p onClick={() => router.push('/disclaimer')} className={`rokkit nav-menu-paper ${router.pathname === '/disclaimer' ? 'nav-selected-paper' : ''}`}>Disclaimer</p>
                     </Paper>
                   </Fade>
                 </ClickAwayListener>

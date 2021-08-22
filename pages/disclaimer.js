@@ -24,7 +24,6 @@ export default function Disclaimer() {
           <p className='rokkit disclaimer-point'>Data yang terdapat di website ini merupakan data yang diambil dari <a href='https://github.com/satyawikananda/rs-bed-covid-indo-api/' target='_blank' rel="noreferrer" style={{ textDecoration: 'underline' }}>satyawikananda/rs-bed-covid-indo-api</a>.</p>
           <p className='rokkit disclaimer-point'>Data diupdate secara berkala dan mungkin saja terjadi perbedaan antara data dengan kondisi rumah sakit yang sebenarnya.</p>
           <p className='rokkit disclaimer-point'>Peta yang ditampilkan mungkin saja tidak 100% akurat dengan lokasi rumah sakit yang sebenarnya.</p>
-          <p className='rokkit disclaimer-point'>Website belum optimal untuk dibuka di perangkat mobile dan akan diupdate secara berkala.</p>
           <br/><br/><br className='sm-hide' />
           <p className='rokkit disclaimer-point'>Regards,</p><br/><br className='sm-hide' />
           <p className='rokkit disclaimer-point'>Aji Widhya Yudhanto</p>
